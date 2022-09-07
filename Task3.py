@@ -1,7 +1,12 @@
-# Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
+# 1.	Задайте список из n чисел последовательности $(1+\frac 1 n)^n$ и выведите на экран их сумму.
+
+# 1+\frac 1 n)^n = (1 + 1 / x)**x
 
 
-for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                print(not (x or y or z) == (not x and not y and not z))
+n = int(input(' Введите число: ')) 
+
+def sequence(n):
+    return[round((1 + 1 / x)**x, 2) for x in range (1, n + 1)]   
+print(sequence(n))
+print(round(sum(sequence(n))))
+

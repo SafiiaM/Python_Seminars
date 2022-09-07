@@ -1,13 +1,30 @@
-# Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+# 1.	Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
 # Пример:
-# - 6 -> да
-# - 7 -> да
-# - 1 -> нет
+# - 6782 -> 23
+# - 0,56 -> 11
 
-d = int(input("Введите цифру, обозначающую день недели: "))
-if (d == 6 and d == 7):
-    print("(этот день выходной) -> да")
-elif (d < 1 and d > 7): 
-    print("это вообще не день недели");  
-else:
-    print("(этот день не выходной) -> нет")
+
+
+
+
+def InputNumbers(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = float(input(f"{inputText}"))
+            is_OK = True
+        except ValueError:
+            print("Это не число!")
+    return number
+
+def sumNums(num):
+    sum = 0
+    for i in str(num):
+        if i != ".":
+            sum += int(i)
+    return sum
+
+num = InputNumbers("Введите число: ")
+
+
+print(f"Сумма цифр = {sumNums(num)}")

@@ -1,14 +1,19 @@
-#2.	Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними 
-# в 2D пространстве.
-# Пример:
-# - A (3,6); B (2,1) -> 5,09
-# - A (7,-5); B (1,-1) -> 7,21
+# Реализуйте алгоритм перемешевания списка 
 
-x1 = int (input("Введите координаты точки x1 = : "))
-y1 = int (input("Введите координаты точки y1 = : "))
-x2 = int (input("Введите координаты точки x2 = : "))
-y2 = int (input("Введите координаты точки y2 = : "))
+import random
 
-d = ((x2 - x1)**2 + (y2 - y1)**2)**(0.5)
-d = round(d,2)
-print(f"Расстояние в 2D пространстве равно {d} ")
+def mix_list(base_list):
+    list = base_list[:]
+    list_length = len(list)
+    for i in range(list_length):
+        index_accidental = random.randint(0, list_length - 1)
+        temp = list[i]
+        list[i] = list[index_accidental]
+        list[index_accidental] = temp
+    return list
+list = [15, 2, 4, 8, 7, 6, 7, 3, 2]
+mixed_list = mix_list(list)
+print("Первоначальный список: ")
+print(list)
+print("Перемешанный список: ")
+print(mixed_list)
