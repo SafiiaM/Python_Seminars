@@ -1,14 +1,19 @@
-#2.	Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними 
-# в 2D пространстве.
+# 1.	Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
 # Пример:
-# - A (3,6); B (2,1) -> 5,09
-# - A (7,-5); B (1,-1) -> 7,21
+# - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
 
-x1 = int (input("Введите координаты точки x1 = : "))
-y1 = int (input("Введите координаты точки y1 = : "))
-x2 = int (input("Введите координаты точки x2 = : "))
-y2 = int (input("Введите координаты точки y2 = : "))
+k = int(input('Введите число: '))
+print(k)
+negofibonacci = [1,-1]
+fibonacci = [1,1]
 
-d = ((x2 - x1)**2 + (y2 - y1)**2)**(0.5)
-d = round(d,2)
-print(f"Расстояние в 2D пространстве равно {d} ")
+for i in range(2,k):
+    list = fibonacci[i-1]+fibonacci[i-2]
+    fibonacci.append(list)
+    list_nego = negofibonacci[i-2] - negofibonacci[i-1]
+    negofibonacci.append(list_nego)
+
+negofibonacci.reverse()
+negofibonacci.append(0)
+
+print(f' для k = {k} =>{negofibonacci+fibonacci} [Негафибоначчи]')

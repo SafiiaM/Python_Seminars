@@ -1,7 +1,14 @@
-# Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
+# 1.	Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и 
+# минимальным значением дробной части элементов.
+# Пример:
+# - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
+list = [1.1, 1.2, 3.1, 5, 10.01]
+print(list)
 
-for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                print(not (x or y or z) == (not x and not y and not z))
+def dif(list):
+    dif_max_min =[]
+    for i in range(len(list)):
+        dif_max_min.append(list[i]%1)
+    return max(dif_max_min) - min(dif_max_min)
+print(round(dif(list),2))
