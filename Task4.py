@@ -3,15 +3,6 @@
 # Пример:
 # - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
 
-# import random
-# k = int (input('Введите натуральную степень k= '))
-# numbers = [random.randint(0,100) for k in range(15)]
-# with open('k.txt', 'w') as data:
-#     data.write('2*x² + 4*x + 5 = 0\n')
-# data.write('x² + 5 = 0 или 10*x² = 0\n')
-
-
-
 import random
 def write_file(st):
     with open('k.txt', 'w') as data:
@@ -47,24 +38,5 @@ koef = create_mn(k)
 write_file(create_str(koef))
 
 
-# import random
-# import pathlib
 
-# k = int(input('Введите коэффициент: '))
-# a = int(random.randint(0,100))
-# b = int(random.randint(0,100))
-# c = int(random.randint(0,100))
-# if a != 0:
-#     first = (str(a) + "x^" + str(k) + " + ")
-# else:
-#     first = (str())
-# if b != 0:
-#     second = (str(b) + "x" + " + ")
-# else:
-#     second = (str())
-# if c != 0:
-#     third = (str(c) + " = 0")
-# else:
-#     third = (str())
-# print(f'{first}{second}{third}')
 
