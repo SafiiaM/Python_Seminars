@@ -1,7 +1,10 @@
-# Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
+# 2.	Задайте последовательность чисел. Напишите программу, которая выведет список неповторяющихся элементов 
+# исходной последовательности.
 
+import random
+numbers = [random.randint(-1,9) for i in range(15)]
+print(numbers)
+newnumbers = [] 
+[newnumbers.append(i) for i in numbers if i not in newnumbers ]
+print(newnumbers) 
 
-for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                print(not (x or y or z) == (not x and not y and not z))
