@@ -1,7 +1,40 @@
-# Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
+# 4.	Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
+# Входные и выходные данные хранятся в отдельных текстовых файлах.
+
+with open('RLE_decoded.txt', 'r') as data:
+    my_text = data.read()
+
+def encode_rle(ss): 
+    str_code = ['']
+    prev_char = ['']
+    count = 1
+    for char in ss:
+        if char != prev_char:
+            if prev_char:
+                str_code += str(count) + prev_char
+            count = 1
+            prev_char = char
+        else:
+            count += 1
+    return str_code
 
 
-for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                print(not (x or y or z) == (not x and not y and not z))
+str_code = encode_rle(my_text)
+print(str_code)
+
+with open('RLE_encoded.txt', 'r') as data:
+    my_text1 = data.read()
+
+def decoding_rle(ss:str):
+    count = ['']
+    str_decode = ['']
+    for char in ss:
+        if char.isdigit():
+            count += char 
+        else:
+            str_decode += char * int(count)
+            count = ['']
+    return str_decode
+
+str_decode = decoding_rle(my_text1)
+print(str_decode)
