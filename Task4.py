@@ -1,14 +1,33 @@
-# 1.	Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек 
-# в этой четверти (x и y).
+# 1.	Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
+# Пример:
+# - 6782 -> 23
+# - 0,56 -> 11
 
 
-num = int (input("Введите номер четверти : "))
+def InputNumbers(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = float(input(f"{inputText}"))
+            is_OK = True
+        except ValueError:
+            print("Это не число!")
+    return number
 
-if num == 1:
-    print ("(x > 0 and y > 0)") 
-elif num == 2:
-    print ("(x < 0 and y > 0)")
-elif num == 3:
-    print ("(x < 0 and y < 0)")
-else:
-    print ("(x > 0, y < 0)")
+def sumNums(num):
+    sum = 0
+    for i in str(num):
+        if i != ".":
+            sum += int(i)
+    return sum
+
+num = InputNumbers("Введите число: ")
+
+
+print(f"Сумма цифр = {sumNums(num)}")
+
+
+# улучшение
+
+new_sum = sum(map(int, str(num).replace('.', '')))
+print(f"Сумма цифр вещественного числа равна = {new_sum}")
